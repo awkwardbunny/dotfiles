@@ -1,7 +1,22 @@
 execute pathogen#infect()
+" Plugins installed:
+"  chriskempson/base16-vim.git
+"  jpalardy/spacehi.vim.git
+"  thinca/vim-localrc
+
+filetype plugin indent on
+syn on se title
 
 set number
 set relativenumber
+
+set smarttab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set noexpandtab
+set autoindent
+set smartindent
 
 imap <up> <nop>
 imap <down> <nop>
@@ -12,40 +27,32 @@ map <down> <nop>
 map <left> <nop>
 map <right> <nop>
 
-" filetype plugin indent on
-syn on se title
+map m :ToggleSpaceHi<CR>
+map <C-b> :!fzf<CR>
 
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set noexpandtab
-set autoindent
-set smartindent
-
-" syntax match Tab /\t/
-" hi Tab gui=underline guifg=blue ctermbg=blue
+"set exrc
+map <F2> :!git status<CR>
+map <F3> :!git diff<CR>
+map <F4> :!git add .<CR>
+map <F5> :!make<CR>
+map <F6> :!make clean<CR>
+"map <S-F2> :!git commit<CR>
+"map <S-F3> :!git push<CR>
 
 let g:spacehi_tabcolor="ctermfg=blue ctermbg=blue guifg=blue guibg=blue"
 let g:spacehi_spacecolor="ctermfg=Black ctermbg=Yellow guifg=Blue guibg=Yellow"
 let g:spacehi_nbspcolor="ctermfg=White ctermbg=Red guifg=White guibg=Red"
-map m :ToggleSpaceHi<CR>
 
-" for stm32f4
-map f :!make flash<CR>
-map t :!make debug<CR>
-
-if has("cscope")
-	set csprg=/usr/bin/cscope
-	set csto=0
-	set cst
-	set nocsverb
-	" add any database in current directory
-	if filereadable("cscope.out")
-		cs add cscope.out
-		" else add database pointed to by environment
-	elseif $CSCOPE_DB != ""
-		cs add $CSCOPE_DB
-	endif
-endif
-
-map <C-b> :!fzf<CR>
+"if has("cscope")
+"	set csprg=/usr/bin/cscope
+"	set csto=0
+"	set cst
+"	set nocsverb
+"	" add any database in current directory
+"	if filereadable("cscope.out")
+"		cs add cscope.out
+"		" else add database pointed to by environment
+"	elseif $CSCOPE_DB != ""
+"		cs add $CSCOPE_DB
+"	endif
+"endif
