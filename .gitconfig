@@ -1,0 +1,21 @@
+[user]
+	name = Brian Hong
+	email = brian@hongs.me
+	signingkey = D96C873E
+
+#[user]
+#	name = Seok hyeon Hong
+#	email = lkd.brian@gmail.com
+#	signingkey = 23392205
+
+[push]
+	default = simple
+[core]
+	autocrlf = input
+	editor = vim
+[color]
+	ui = auto
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg2
