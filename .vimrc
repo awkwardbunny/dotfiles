@@ -27,17 +27,26 @@ map <down> <nop>
 map <left> <nop>
 map <right> <nop>
 
+nmap <silent> <C-k> :wincmd k<CR>
+nmap <silent> <C-j> :wincmd j<CR>
+nmap <silent> <C-h> :wincmd h<CR>
+nmap <silent> <C-l> :wincmd l<CR>
+
 map m :ToggleSpaceHi<CR>
 map <C-b> :!fzf<CR>
 
-"set exrc
+set exrc
 map <F2> :!git status<CR>
 map <F3> :!git diff<CR>
 map <F4> :!git add .<CR>
 map <F5> :!make<CR>
 map <F6> :!make clean<CR>
+map <F12> :!man
 "map <S-F2> :!git commit<CR>
 "map <S-F3> :!git push<CR>
+
+set hlsearch
+"nnoremap <esc> :noh<CR><esc>
 
 let g:spacehi_tabcolor="ctermfg=blue ctermbg=blue guifg=blue guibg=blue"
 let g:spacehi_spacecolor="ctermfg=Black ctermbg=Yellow guifg=Blue guibg=Yellow"
