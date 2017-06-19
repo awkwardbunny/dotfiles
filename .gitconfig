@@ -8,6 +8,8 @@
 #	email = lkd.brian@gmail.com
 #	signingkey = 23392205
 
+[alias]
+  dif = diff --color-words=. -w
 [push]
 	default = simple
 [core]
