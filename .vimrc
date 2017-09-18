@@ -9,6 +9,8 @@ syn on se title
 
 set number
 set relativenumber
+set showcmd
+set incsearch
 
 set smarttab
 set tabstop=4
@@ -32,8 +34,11 @@ nmap <silent> <C-j> :wincmd j<CR>
 nmap <silent> <C-h> :wincmd h<CR>
 nmap <silent> <C-l> :wincmd l<CR>
 
+cmap w!! w !sudo tee > /dev/null %
+
 map m :ToggleSpaceHi<CR>
-map <C-b> :!fzf<CR>
+"map <C-b> :!fzf<CR>
+map <C-b> :!make run<CR>
 
 set exrc
 map <F2> :!git status<CR>
@@ -46,22 +51,17 @@ map <F12> :!man
 "map <S-F3> :!git push<CR>
 
 set hlsearch
-"nnoremap <esc> :noh<CR><esc>
+set incsearch
+nnoremap <Enter> :noh<CR>
 
 let g:spacehi_tabcolor="ctermfg=blue ctermbg=blue guifg=blue guibg=blue"
 let g:spacehi_spacecolor="ctermfg=Black ctermbg=Yellow guifg=Blue guibg=Yellow"
 let g:spacehi_nbspcolor="ctermfg=White ctermbg=Red guifg=White guibg=Red"
 
-"if has("cscope")
-"	set csprg=/usr/bin/cscope
-"	set csto=0
-"	set cst
-"	set nocsverb
-"	" add any database in current directory
-"	if filereadable("cscope.out")
-"		cs add cscope.out
-"		" else add database pointed to by environment
-"	elseif $CSCOPE_DB != ""
-"		cs add $CSCOPE_DB
-"	endif
-"endif
+" for Totem development
+"set tabstop=2
+"set softtabstop=2
+"set shiftwidth=2
+"set expandtab
+
+"map <F5> :!(git-root; ./build_and_deploy.sh )<CR>
