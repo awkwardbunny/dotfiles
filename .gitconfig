@@ -1,7 +1,7 @@
 [user]
 	name = Brian Hong
 	email = brian@hongs.me
-	signingkey = D96C873E
+#	signingkey = D96C873E
 
 #[user]
 #	name = Seok hyeon Hong
@@ -18,7 +18,7 @@
 [color]
 	ui = auto
 [commit]
-	gpgsign = true
+	#gpgsign = true
 [gpg]
 	program = gpg2
 [merge]
