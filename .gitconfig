@@ -1,33 +1,44 @@
 [user]
 	name = Brian Hong
-	email = brian@hongs.me
-#	signingkey = D96C873E
+	email = brian@bhong.dev
 
 #[user]
 #	name = Seok hyeon Hong
 #	email = lkd.brian@gmail.com
-#	signingkey = 23392205
 
 [alias]
-	dif = diff --color-words=. -w
+	graph = log --graph --all --oneline --abbrev-commit
+
 [push]
 	default = simple
+
 [core]
 	autocrlf = input
 	editor = vim
+
 [color]
 	ui = auto
+
 [commit]
 	#gpgsign = true
+
 [gpg]
 	program = gpg2
+
 [merge]
-	tool = vimdiff
+	#tool = vimdiff
+	tool = vscode
 	conflictstyle = diff3
+
+[mergetool "vscode"]
+	cmd = code --wait $MERGED
+
+[diff]
+	tool = vscode
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
+
 [mergetool]
-	prompt = false
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+	prompt = true
+[oh-my-zsh]
+	hide-status = 0

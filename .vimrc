@@ -4,7 +4,6 @@ syn on se title
 set number
 set relativenumber
 set showcmd
-set incsearch
 
 set smarttab
 set tabstop=4
@@ -30,7 +29,6 @@ nmap <silent> <C-l> :wincmd l<CR>
 
 cmap w!! w !sudo tee > /dev/null %
 
-map <C-f> :!fzf<CR>
 map <C-b> :!make run<CR>
 
 map <F2> :!git status<CR>
@@ -45,3 +43,37 @@ map <F12> :!man
 set hlsearch
 set incsearch
 nnoremap <Enter> :noh<CR>
+nnoremap <Leader>r :so $MYVIMRC<CR>
+nnoremap <Leader>- :split<CR>
+nnoremap <Leader><Bar> :vsplit<CR>
+
+call plug#begin('~/.vim/plugged')
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdtree'
+"Plug 'scrooloose/syntastic'
+Plug 'itchyny/lightline.vim'
+"Plug 'airblade/vim-gitgutter'
+call plug#end()
+
+nnoremap <silent> <C-f> :Files<CR>
+nnoremap <silent> <Leader>f :Rg<CR>
+nnoremap <silent> <Leader>b :Buffers<CR>
+nnoremap <silent> <Leader>/ :BLines<CR>
+nnoremap <silent> <Leader>' :Marks<CR>
+nnoremap <silent> <Leader>g :BCommits<CR>
+nnoremap <silent> <Leader>G :Commits<CR>
+nnoremap <silent> <Leader>t :BTags<CR>
+nnoremap <silent> <Leader>T :Tags<CR>
+nnoremap <silent> <Leader>h :History<CR>
+nnoremap <silent> <Leader>hh :History:<CR>
+nnoremap <silent> <Leader>h/ :History/<CR>
+
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTreeToggle<CR>
+" Exit Vim if NERDTree is the only window left.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
+set laststatus=2
+set noshowmode
