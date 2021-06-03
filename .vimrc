@@ -12,6 +12,7 @@ set shiftwidth=4
 set noexpandtab
 set autoindent
 set smartindent
+set cindent
 
 imap <up> <nop>
 imap <down> <nop>
@@ -47,6 +48,8 @@ nnoremap <Leader>r :so $MYVIMRC<CR>
 nnoremap <Leader>- :split<CR>
 nnoremap <Leader><Bar> :vsplit<CR>
 
+"inoremap {<CR>  {<CR>}<Esc>O
+
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -55,6 +58,9 @@ Plug 'scrooloose/nerdtree'
 "Plug 'scrooloose/syntastic'
 Plug 'itchyny/lightline.vim'
 "Plug 'airblade/vim-gitgutter'
+Plug 'jiangmiao/auto-pairs'
+Plug 'rhysd/vim-clang-format'
+Plug 'rip-rip/clang_complete'
 call plug#end()
 
 nnoremap <silent> <C-f> :Files<CR>
@@ -77,3 +83,10 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 
 set laststatus=2
 set noshowmode
+
+map <silent> <C-k> :ClangFormat<CR>
+let g:clang_library_path='/usr/lib/llvm-10/lib/libclang.so.1'
+
+" clang_complete and auto-pairs not fully compatible?
+let g:AutoPairsMapCR = 0
+imap <silent><CR> <CR><Plug>AutoPairsReturn
