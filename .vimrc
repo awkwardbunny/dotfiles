@@ -1,8 +1,4 @@
 execute pathogen#infect()
-" Plugins installed:
-"  chriskempson/base16-vim.git
-"  jpalardy/spacehi.vim.git
-"  thinca/vim-localrc
 
 filetype plugin indent on
 syn on se title
@@ -10,7 +6,6 @@ syn on se title
 set number
 set relativenumber
 set showcmd
-set incsearch
 
 set smarttab
 set tabstop=4
@@ -19,6 +14,8 @@ set shiftwidth=4
 set noexpandtab
 set autoindent
 set smartindent
+
+set exrc
 
 imap <up> <nop>
 imap <down> <nop>
@@ -36,16 +33,14 @@ nmap <silent> <C-l> :wincmd l<CR>
 
 cmap w!! w !sudo tee > /dev/null %
 
-map m :ToggleSpaceHi<CR>
-"map <C-b> :!fzf<CR>
 map <C-b> :!make run<CR>
 
-set exrc
 map <F2> :!git status<CR>
 map <F3> :!git diff<CR>
 map <F4> :!git add .<CR>
 map <F5> :!make<CR>
 map <F6> :!make clean<CR>
+map <F7> :!pdflatex '%:t'<CR>
 map <F12> :!man
 "map <S-F2> :!git commit<CR>
 "map <S-F3> :!git push<CR>
@@ -53,15 +48,3 @@ map <F12> :!man
 set hlsearch
 set incsearch
 nnoremap <Enter> :noh<CR>
-
-let g:spacehi_tabcolor="ctermfg=blue ctermbg=blue guifg=blue guibg=blue"
-let g:spacehi_spacecolor="ctermfg=Black ctermbg=Yellow guifg=Blue guibg=Yellow"
-let g:spacehi_nbspcolor="ctermfg=White ctermbg=Red guifg=White guibg=Red"
-
-" for Totem development
-"set tabstop=2
-"set softtabstop=2
-"set shiftwidth=2
-"set expandtab
-
-"map <F5> :!(git-root; ./build_and_deploy.sh )<CR>
