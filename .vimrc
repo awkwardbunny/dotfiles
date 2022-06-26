@@ -71,6 +71,10 @@ Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
 "Plug 'rhysd/vim-clang-format'
 "Plug 'rip-rip/clang_complete'
+Plug 'rhysd/vim-clang-format'
+Plug 'rip-rip/clang_complete'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries'  }
+"Plug 'davidhalter/jedi-vim'
 Plug 'rust-lang/rust.vim'
 Plug 'dense-analysis/ale'
 Plug 'cespare/vim-toml'
@@ -147,3 +151,6 @@ call deoplete#custom#option('sources', {
 \})
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+"set diffopt+=context:9
+set diffopt=filler,context:30
