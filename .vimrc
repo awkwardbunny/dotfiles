@@ -61,6 +61,8 @@ Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'rhysd/vim-clang-format'
 Plug 'rip-rip/clang_complete'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries'  }
+"Plug 'davidhalter/jedi-vim'
 call plug#end()
 
 nnoremap <silent> <C-f> :Files<CR>
@@ -90,3 +92,6 @@ let g:clang_library_path='/usr/lib/llvm-10/lib/libclang.so.1'
 " clang_complete and auto-pairs not fully compatible?
 let g:AutoPairsMapCR = 0
 imap <silent><CR> <CR><Plug>AutoPairsReturn
+
+"set diffopt+=context:9
+set diffopt=filler,context:30
